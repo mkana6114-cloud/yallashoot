@@ -6,12 +6,18 @@
     <title>يلا شوت | yalla shoot - البث المباشر للمباريات وأحدث الأخبار الرياضية</title>
     
     <!-- SEO & Sitemap Meta Tags -->
-    <meta name="description" content="موقع يلا شوت تابع أهم المباريات بث مباشر وأحدث الأخبار الرياضية بجودة عالية." />
-    <meta name="keywords" content="يلا شوت, yalla shoot, بث مباشر, مباريات اليوم, كورة لايف" />
+    <meta name="description" content="موقع يلا شوت تابع أهم المباريات بث مباشر وأحدث الأخبار الرياضية بجودة عالية بدون تقطيع." />
+    <meta name="keywords" content="يلا شوت, yalla shoot, بث مباشر, مباريات اليوم, كورة لايف, مشاهدة مباريات الدوري الإنجليزي ودوري أبطال أوروبا" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
     <!-- Google Site Verification -->
     <meta name="google-site-verification" content="vhVKnCpm0CVES6PYBVOG5hI0oWdDE4739vu_vPmJUEs" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="يلا شوت | بث مباشر للمباريات مجاناً HD">
+    <meta property="og:description" content="تابع أهم مباريات اليوم بث مباشر بجودة عالية وبدون تقطيع.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+    <meta property="og:type" content="website">
 
     <!-- 1. Adsterra: Social Bar Code (Delayed to 4s) -->
     <script type="text/javascript">
@@ -34,7 +40,44 @@
             background-color: #e9ecef;
             color: #333;
             padding-bottom: 30px;
+            user-select: none;
         }
+
+        /* نافذة كاشف مانع الإعلانات */
+        #adblockOverlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(17, 30, 46, 0.98);
+            z-index: 99999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .adblock-box {
+            background-color: #ffffff;
+            border: 2px solid #a81c07;
+            border-radius: 12px;
+            padding: 25px;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(168, 28, 7, 0.3);
+        }
+        .adblock-box h2 { color: #a81c07; margin-bottom: 10px; font-size: 1.3rem; }
+        .adblock-box p { color: #4b5563; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+        .adblock-btn {
+            background-color: #a81c07;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
         /* Header */
         header {
             background-color: #ffffff;
@@ -68,6 +111,34 @@
             padding: 0 10px;
         }
 
+        /* شريط التليجرام */
+        .telegram-bar {
+            background: linear-gradient(90deg, #0284c7, #0369a1);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        .telegram-bar span { font-size: 0.9rem; font-weight: bold; }
+        .telegram-btn {
+            background-color: #ffffff;
+            color: #0284c7;
+            padding: 6px 14px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+        .telegram-btn:hover { background-color: #e0f2fe; }
+
         /* Banner Ads */
         .ad-banner-box {
             margin: 15px 0;
@@ -96,6 +167,7 @@
 
         /* Live Frame Container */
         .live-wrapper {
+            position: relative;
             background-color: #ffffff;
             border-radius: 8px;
             padding: 10px;
@@ -108,6 +180,32 @@
             border: none;
             border-radius: 6px;
         }
+
+        /* أزرار المشاركة */
+        .share-buttons {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .share-btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+        }
+        .btn-copy { background-color: #3b82f6; }
+        .btn-tg { background-color: #0ea5e9; }
+        .btn-wa { background-color: #22c55e; }
+        #copy-msg { display: none; color: #22c55e; font-size: 0.85rem; margin-bottom: 10px; text-align: center; font-weight: bold; }
 
         /* News Box */
         .news-box {
@@ -154,11 +252,33 @@
             margin-bottom: 15px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             text-align: center;
-            display: none; /* مخفية مؤقتاً لتظهر بسلاسة بعد تحميل الصفحة الأساسية */
+            display: none;
+        }
+
+        /* قسم SEO المخفي */
+        .seo-hidden-content {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
+
+    <!-- الشاشة التي تظهر في حال وجود مانع إعلانات (AdBlock) -->
+    <div id="adblockOverlay">
+        <div class="adblock-box">
+            <h2>⚠️ يرجى إيقاف مانع الإعلانات (AdBlock)</h2>
+            <p>لضمان استمرار البث المباشر مجاناً وبجودة عالية، يرجى تعطيل تطبيق مانع الإعلانات من متصفحك ثم قم بتحديث الصفحة.</p>
+            <button class="adblock-btn" onclick="location.reload()">لقد قمت بإيقافه - تحديث الصفحة</button>
+        </div>
+    </div>
 
     <!-- Header -->
     <header>
@@ -167,7 +287,21 @@
         <div class="header-icon">☰</div>
     </header>
 
+    <!-- محتوى SEO مخصص لروبوتات جوجل فقط -->
+    <div class="seo-hidden-content">
+        <h1>موقع يلا شوت للبث المباشر - yalla shoot</h1>
+        <p>مرحباً بكم في موقع يلا شوت الأصلي لتغطية المباريات الحية وبث مباشر مباريات اليوم بدون تقطيع. تابع جدول مباريات الدوري الإنجليزي الممتاز، دوري أبطال أوروبا، الدوري الإسباني، الدوري المصري، وكل البطولات الكبرى حصرياً. نقدم لكم أحدث الأخبار الرياضية ونتائج المباريات أول بأول مع روابط بث مباشر عالية الجودة تناسب جميع سرعات الإنترنت.</p>
+        <h2>جدول مباريات اليوم بث مباشر</h2>
+        <p>شاهد أهم لقاءات اليوم في كورة لايف ويلا شوت الجديد. تغطية حصرية لحظة بلحظة لأبرز الأندية والمنتخبات العالمية والعربية.</p>
+    </div>
+
     <div class="container">
+
+        <!-- شريط الانضمام للتليجرام -->
+        <div class="telegram-bar">
+            <span>✈️ انضم لقناتنا على تليجرام لمشاهدة جميع المباريات يومياً بدون تقطيع!</span>
+            <a href="https://t.me/YallaShoot_Matches" id="telegramHeaderBtn" target="_blank" class="telegram-btn">انضم الآن</a>
+        </div>
 
         <!-- Top Banner Ad -->
         <div class="ad-banner-box">
@@ -191,9 +325,21 @@
             🔴 اضغط هنا لمشاهدة البث المباشر HD
         </a>
 
+        <!-- أزرار المشاركة -->
+        <div class="share-buttons">
+            <button class="share-btn btn-wa" onclick="shareWhatsApp()">📱 شارك واتساب</button>
+            <button class="share-btn btn-tg" onclick="shareTelegram()">✈️ شارك تليجرام</button>
+            <button class="share-btn btn-copy" onclick="copyMyLink()">🔗 انسخ رابط البث</button>
+        </div>
+        <div id="copy-msg">✅ تم نسخ رابط البث بنجاح! شاركه مع أصدقائك.</div>
+
         <!-- إطار موقع البث -->
         <div class="live-wrapper">
-            <iframe src="https://yalla.moda/" class="live-frame" allowfullscreen></iframe>
+            <iframe src="https://yalla.moda/" 
+                    class="live-frame" 
+                    allowfullscreen 
+                    sandbox="allow-scripts allow-same-origin allow-forms allow-presentation">
+            </iframe>
         </div>
 
         <!-- New Banner 320x50 (Loads after 4 seconds) -->
@@ -267,14 +413,41 @@
 
     <!-- Script: Delayed Loading & Interactions (4 Seconds) -->
     <script type="text/javascript">
-        // إظهار الإعلانات الجديدة بعد 4 ثوانٍ لضمان رؤية المستخدم للموقع أولاً بدون إزعاج
+        // رابط قناتك على تليجرام عند ضغط الزائر على زر الرجوع
+        var myTelegramChannel = "https://t.me/YallaShoot_Matches";
+
+        // تحويل الزائر عند الضغط على رجوع
+        (function() {
+            history.pushState(null, null, location.href);
+            window.onpopstate = function() {
+                window.location.href = myTelegramChannel;
+            };
+        })();
+
+        // كاشف مانع الإعلانات
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                let fakeAd = document.createElement('div');
+                fakeAd.innerHTML = '&nbsp;';
+                fakeAd.className = 'adsbox pub_300x250 pub_300x250m pub_728x90 text-ad ad-text text_ad text_ads text-ads ad-banner';
+                fakeAd.style.position = 'absolute';
+                fakeAd.style.top = '-999px';
+                document.body.appendChild(fakeAd);
+                
+                if (fakeAd.offsetHeight === 0 || fakeAd.clientHeight === 0) {
+                    document.getElementById('adblockOverlay').style.display = 'flex';
+                }
+                fakeAd.remove();
+            }, 1000);
+        });
+
+        // إعلانات Adsterra المؤجلة
         setTimeout(function() {
             var ad1 = document.getElementById('delayed-ad-1');
             var ad2 = document.getElementById('delayed-ad-2');
             if(ad1) ad1.style.display = 'block';
             if(ad2) ad2.style.display = 'block';
 
-            // تحميل سكريبت الـ Popunder بعد 4 ثوانٍ
             var script = document.createElement('script');
             script.type = 'text/javascript';
             script.src = 'https://pl31451867.profitableratecpmnetwork.com/f5/99/89/f59989de8ee4a9b531a31a0b9f0743e0.js';
@@ -285,6 +458,37 @@
             var adUrl = "https://www.profitableratecpmnetwork.com/fcap2vfxc?key=5a5deeb44022be17c22e711c0c267b79";
             window.open(adUrl, '_blank');
         }
+
+        // دوال أزرار المشاركة
+        function copyMyLink() {
+            var tempInput = document.createElement("input");
+            tempInput.value = window.location.href;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            
+            document.getElementById('copy-msg').style.display = 'block';
+            setTimeout(() => { document.getElementById('copy-msg').style.display = 'none'; }, 3000);
+        }
+
+        function shareWhatsApp() {
+            var url = window.location.href;
+            window.open("https://api.whatsapp.com/send?text=شاهد البث المباشر للمباراة بدون تقطيع من هنا: " + url, "_blank");
+        }
+
+        function shareTelegram() {
+            var url = window.location.href;
+            window.open("https://t.me/share/url?url=" + url + "&text=شاهد البث المباشر للمباراة الآن!", "_blank");
+        }
+
+        // حماية الكود من الفحص والكليك يمين
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12') { e.preventDefault(); return false; }
+            if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) { e.preventDefault(); return false; }
+            if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j')) { e.preventDefault(); return false; }
+            if (e.ctrlKey && (e.key === 'U' || e.key === 'u')) { e.preventDefault(); return false; }
+        });
     </script>
 
 </body>
