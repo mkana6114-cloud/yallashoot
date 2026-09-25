@@ -3,463 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>يلا شوت | yalla shoot - البث المباشر للمباريات وأحدث الأخبار الرياضية</title>
+    <title id="pageTitle">يلا شوت | yalla shoot - مباريات اليوم بث مباشر</title>
     
-    <!-- SEO & Sitemap Meta Tags -->
-    <meta name="description" content="موقع يلا شوت تابع أهم المباريات بث مباشر وأحدث الأخبار الرياضية بجودة عالية بدون تقطيع." />
-    <meta name="keywords" content="يلا شوت, yalla shoot, بث مباشر, مباريات اليوم, كورة لايف, مشاهدة مباريات الدوري الإنجليزي ودوري أبطال أوروبا" />
+    <meta name="description" id="metaDesc" content="موقع يلا شوت تابع مباريات اليوم بث مباشر وأحدث الأخبار الرياضية والدوريات الكبرى والمنتخبات العالمية بدون تقطيع - Yalla Shoot Live matches." />
+    <meta name="keywords" id="metaKeywords" content="يلا شوت, yalla shoot, مباريات اليوم, live matches, بث مباشر, كورة لايف, football live stream, كريستيانو رونالدو, Cristiano Ronaldo, ليونيل ميسي, Lionel Messi" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-
-    <!-- Google Site Verification -->
     <meta name="google-site-verification" content="vhVKnCpm0CVES6PYBVOG5hI0oWdDE4739vu_vPmJUEs" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="يلا شوت | بث مباشر للمباريات مجاناً HD">
-    <meta property="og:description" content="تابع أهم مباريات اليوم بث مباشر بجودة عالية وبدون تقطيع.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-    <meta property="og:type" content="website">
-
-    <!-- 1. Adsterra: Social Bar Code (Delayed to 4s) -->
-    <script type="text/javascript">
-        setTimeout(function() {
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.src = 'https://pl31451868.profitableratecpmnetwork.com/6a/ab/24/6aab24bdc52cbdc3ca9d21e8b2a2dde6.js';
-            document.head.appendChild(script);
-        }, 4000);
-    </script>
-
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            background-color: #e9ecef;
-            color: #333;
-            padding-bottom: 30px;
-            user-select: none;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        html, body { width: 100%; margin: 0; padding: 0; overflow-x: hidden; background-color: #e9ecef; color: #333; }
 
-        /* نافذة كاشف مانع الإعلانات */
+        /* نافذة مانع الإعلانات الإجبارية */
         #adblockOverlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(17, 30, 46, 0.98);
-            z-index: 99999;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(11, 19, 30, 0.99); z-index: 999999;
+            flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;
         }
-        .adblock-box {
-            background-color: #ffffff;
-            border: 2px solid #a81c07;
-            border-radius: 12px;
-            padding: 25px;
-            max-width: 450px;
-            width: 100%;
-            box-shadow: 0 10px 30px rgba(168, 28, 7, 0.3);
-        }
-        .adblock-box h2 { color: #a81c07; margin-bottom: 10px; font-size: 1.3rem; }
+        .adblock-box { background: #fff; border: 3px solid #a81c07; border-radius: 12px; padding: 30px; max-width: 450px; width: 100%; box-shadow: 0 15px 40px rgba(168, 28, 7, 0.4); }
+        .adblock-box h2 { color: #a81c07; margin-bottom: 12px; font-size: 1.4rem; }
         .adblock-box p { color: #4b5563; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
-        .adblock-btn {
-            background-color: #a81c07;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
+        .adblock-btn { background: #a81c07; color: #fff; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 1rem; width: 100%; }
 
         /* Header */
-        header {
-            background-color: #ffffff;
-            padding: 10px 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            margin-bottom: 15px;
-        }
-        .header-icon {
-            background-color: #111e2e;
-            color: #fff;
-            padding: 8px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1.1rem;
-        }
-        .logo-box {
-            background-color: #a81c07;
-            color: #fff;
-            padding: 6px 20px;
-            border-radius: 6px;
-            font-size: 1.4rem;
-            font-weight: bold;
-        }
+        header { background: #fff; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 8px; width: 100%; }
+        .header-icon { background: #111e2e; color: #fff; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
+        .logo-box { background: #a81c07; color: #fff; padding: 5px 15px; border-radius: 6px; font-size: 1.2rem; font-weight: bold; }
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 0 10px;
-        }
+        .container { width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
 
-        /* شريط التليجرام */
-        .telegram-bar {
-            background: linear-gradient(90deg, #0284c7, #0369a1);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            text-align: center;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        }
-        .telegram-bar span { font-size: 0.9rem; font-weight: bold; }
-        .telegram-btn {
-            background-color: #ffffff;
-            color: #0284c7;
-            padding: 6px 14px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.85rem;
-            transition: 0.2s;
-        }
-        .telegram-btn:hover { background-color: #e0f2fe; }
+        /* شريط التليجرام العلوي */
+        .telegram-bar { background: linear-gradient(90deg, #0284c7, #0369a1); color: white; padding: 6px 15px; text-align: center; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 0.85rem; }
+        .telegram-btn { background: #fff; color: #0284c7; padding: 3px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.75rem; white-space: nowrap; }
 
-        /* Banner Ads */
-        .ad-banner-box {
-            margin: 15px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 60px;
-            overflow: hidden;
-        }
+        /* حاويات الإعلانات الـ 7 */
+        .ad-box { margin: 8px 0; display: flex; justify-content: center; align-items: center; min-height: 50px; overflow: hidden; width: 100%; background: #ffffff; padding: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
 
-        /* Main Live Button */
-        .watch-btn {
-            display: block;
-            background-color: #a81c07;
-            color: #ffffff;
-            text-align: center;
-            padding: 16px;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 10px rgba(168, 28, 7, 0.3);
-            cursor: pointer;
-        }
-
-        /* Live Frame Container */
-        .live-wrapper {
-            position: relative;
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 10px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            margin-bottom: 15px;
-        }
-        .live-frame {
-            width: 100%;
-            height: 500px;
-            border: none;
-            border-radius: 6px;
-        }
-
-        /* أزرار المشاركة */
-        .share-buttons {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .share-btn {
-            padding: 8px 12px;
-            border: none;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            cursor: pointer;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            text-decoration: none;
-        }
-        .btn-copy { background-color: #3b82f6; }
-        .btn-tg { background-color: #0ea5e9; }
-        .btn-wa { background-color: #22c55e; }
-        #copy-msg { display: none; color: #22c55e; font-size: 0.85rem; margin-bottom: 10px; text-align: center; font-weight: bold; }
-
-        /* News Box */
-        .news-box {
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 10px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            margin-bottom: 15px;
-        }
-        .news-header {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 10px;
-        }
-        .news-badge {
-            background-color: #111e2e;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-        .news-item {
-            background-color: #f4f5f7;
-            border-radius: 6px;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        .news-title {
-            font-size: 0.85rem;
-            font-weight: bold;
-            color: #333;
+        /* زر البث المباشر (بحجم متوسط وبارز وجذاب جداً للنقر) */
+        .watch-btn { 
+            display: block; 
+            background: linear-gradient(135deg, #dc2626, #7f1d1d); 
+            color: #fff; 
+            text-align: center; 
+            padding: 18px 12px; 
+            font-size: 1.35rem; 
+            font-weight: bold; 
+            text-decoration: none; 
+            margin-bottom: 12px; 
+            box-shadow: 0 6px 18px rgba(220, 38, 38, 0.45); 
+            cursor: pointer; 
+            border-radius: 10px;
+            border: 2.5px solid #fca5a5;
+            animation: pulseGlow 1.8s infinite;
             line-height: 1.4;
         }
-
-        /* New Ads Styling Containers */
-        .new-ads-section {
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            text-align: center;
-            display: none;
+        @keyframes pulseGlow {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+            70% { transform: scale(1.015); box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
         }
 
-        /* قسم SEO المخفي */
-        .seo-hidden-content {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
+        /* إطار جدول المباريات مع مانع أخطاء السيرفر (502 Gateway Fallback) */
+        .live-wrapper { position: relative; background: #fff; margin-bottom: 8px; width: 100%; min-height: 650px; }
+        .live-frame { width: 100%; height: 650px; border: none; display: block; background: #fff; }
+        
+        /* تصميم رسالة بديلة في حال واجه الإطار خطأ انقطاع أو سيرفر */
+        .fallback-error-msg {
+            display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: #fff; justify-content: center; align-items: center; flex-direction: column; text-align: center; padding: 20px; z-index: 5;
         }
+        .fallback-error-msg h3 { color: #dc2626; margin-bottom: 10px; font-size: 1.3rem; }
+        .fallback-error-msg p { color: #555; font-size: 0.95rem; margin-bottom: 15px; }
+        .fallback-btn { background: #0284c7; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; text-decoration: none; }
+
+        /* أزرار المشاركة */
+        .share-buttons { display: flex; gap: 8px; margin-bottom: 8px; justify-content: center; flex-wrap: wrap; padding: 0 10px; }
+        .share-btn { padding: 6px 10px; border: none; border-radius: 5px; font-size: 0.8rem; font-weight: bold; cursor: pointer; color: #fff; }
+        .btn-copy { background: #3b82f6; } .btn-tg { background: #0ea5e9; } .btn-wa { background: #22c55e; }
+        #copy-msg { display: none; color: #22c55e; font-size: 0.8rem; margin-bottom: 8px; text-align: center; font-weight: bold; }
+
+        /* حاوية الكلمات المفتاحية المخفية لمحركات البحث */
+        .seo-hidden-keywords {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; 
+            overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+        }
+
+        /* صندوق الأخبار */
+        .news-box { background: #fff; padding: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 8px; }
+        .news-badge { background: #111e2e; color: white; padding: 4px 12px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; display: inline-block; margin-bottom: 8px; }
+        .news-item { background: #f4f5f7; border-radius: 6px; padding: 10px; margin-bottom: 8px; font-size: 0.85rem; font-weight: bold; color: #333; }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
-    <!-- الشاشة التي تظهر في حال وجود مانع إعلانات (AdBlock) -->
+    <!-- نافذة مانع الإعلانات الإجبارية -->
     <div id="adblockOverlay">
         <div class="adblock-box">
-            <h2>⚠️ يرجى إيقاف مانع الإعلانات (AdBlock)</h2>
-            <p>لضمان استمرار البث المباشر مجاناً وبجودة عالية، يرجى تعطيل تطبيق مانع الإعلانات من متصفحك ثم قم بتحديث الصفحة.</p>
-            <button class="adblock-btn" onclick="location.reload()">لقد قمت بإيقافه - تحديث الصفحة</button>
+            <h2>⚠️ تنبيه هام: تم رصد مانع إعلانات!</h2>
+            <p>لكي تتمكن من متابعة جدول المباريات والبث المباشر بجودة عالية وبدون توقف، يرجى إيقاف تطبيق مانع الإعلانات، ثم الضغط على زر التحديث أدناه.</p>
+            <button class="adblock-btn" onclick="location.reload()">لقد أوقفته - تحديث الصفحة الآن</button>
         </div>
     </div>
 
-    <!-- Header -->
+    <!-- صندوق الكلمات المفتاحية الشاملة (الأندية، الدوريات، والمنتخبات العالمية والقارية عربي وإنجليزي) -->
+    <div class="seo-hidden-keywords" id="hiddenSeoContainer">
+        يلا شوت yalla shoot yalla-shoot كورة لايف koora live بث مباشر live stream مباريات اليوم matches today الدوري الإنجليزي Premier League الدوري الإسباني La Liga الدوري الإيطالي Serie A الدوري الألماني Bundesliga الدوري الفرنسي Ligue 1 دوري أبطال أوروبا Champions League ريال مدريد Real Madrid برشلونة Barcelona ليفربول Liverpool مانشستر سيتي Manchester City مانشستر يونايتد Manchester United أرسنال Arsenal بايرن ميونخ Bayern Munich باريس سان جيرمان Paris Saint-Germain كريستيانو رونالدو Cristiano Ronaldo ليونيل ميسي Lionel Messi كيليان مبابي Kylian Mbappe إيرلينغ هالاند Erling Haaland محمد صلاح Mohamed Salah الهلال Al Hilal النصر Al Nassr الاتحاد Al Ittihad الأهلي Al Ahli الزمالك Zamalek نتائج المباريات live scores جدول المباريات fixtures أهداف اليوم match goals اهداف وملخصات.
+        منتخب مصر Egypt national football team, منتخب السعودية Saudi Arabia national team, منتخب المغرب Morocco national team, منتخب الجزائر Algeria national team, منتخب تونس Tunisia national team, منتخب قطر Qatar national team, منتخب الإمارات UAE national team, منتخب العراق Iraq national team, منتخب الأردن Jordan national team, منتخب البرازيل Brazil national team, منتخب الأرجنتين Argentina national team, منتخب فرنسا France national team, منتخب إنجلترا England national team, منتخب ألمانيا Germany national team, منتخب إسبانيا Spain national team, منتخب إيطاليا Italy national team, منتخب البرتغال Portugal national team, منتخب هولندا Netherlands national team, منتخب بلجيكا Belgium national team, منتخب كرواتيا Croatia national team, منتخب الأوروغواي Uruguay national team, منتخب السنغال Senegal national team, منتخب كاميرون Cameroon national team, منتخب نيجيريا Nigeria national team, منتخب غانا Ghana national team, منتخب كوت ديفوار Ivory Coast national team, كأس العالم World Cup, تصفيات كأس العالم World Cup qualifiers, كأس أمم إفريقيا Africa Cup of Nations, كأس أمم أوروبا Euro, كوبا أمريكا Copa America.
+    </div>
+
     <header>
         <div class="header-icon">🌙</div>
         <div class="logo-box">يلا شوت</div>
         <div class="header-icon">☰</div>
     </header>
 
-    <!-- محتوى SEO مخصص لروبوتات جوجل فقط -->
-    <div class="seo-hidden-content">
-        <h1>موقع يلا شوت للبث المباشر - yalla shoot</h1>
-        <p>مرحباً بكم في موقع يلا شوت الأصلي لتغطية المباريات الحية وبث مباشر مباريات اليوم بدون تقطيع. تابع جدول مباريات الدوري الإنجليزي الممتاز، دوري أبطال أوروبا، الدوري الإسباني، الدوري المصري، وكل البطولات الكبرى حصرياً. نقدم لكم أحدث الأخبار الرياضية ونتائج المباريات أول بأول مع روابط بث مباشر عالية الجودة تناسب جميع سرعات الإنترنت.</p>
-        <h2>جدول مباريات اليوم بث مباشر</h2>
-        <p>شاهد أهم لقاءات اليوم في كورة لايف ويلا شوت الجديد. تغطية حصرية لحظة بلحظة لأبرز الأندية والمنتخبات العالمية والعربية.</p>
-    </div>
-
     <div class="container">
 
-        <!-- شريط الانضمام للتليجرام -->
+        <!-- شريط التليجرام العلوي -->
         <div class="telegram-bar">
-            <span>✈️ انضم لقناتنا على تليجرام لمشاهدة جميع المباريات يومياً بدون تقطيع!</span>
-            <a href="https://t.me/YallaShoot_Matches" id="telegramHeaderBtn" target="_blank" class="telegram-btn">انضم الآن</a>
+            <span>✈️ انضم لقناة التليجرام الرسمية للمباريات اليومية</span>
+            <a href="https://t.me/YallaShoot_Matches" target="_blank" class="telegram-btn">انضم الآن</a>
         </div>
 
-        <!-- Top Banner Ad -->
-        <div class="ad-banner-box">
-            <script type="text/javascript">
-              atOptions = {
-                'key' : 'ec98f6661f07f841cdede5c5fd613313',
-                'format' : 'iframe',
-                'height' : 60,
-                'width' : 468,
-                'params' : {}
-              };
-            </script>
-            <script type="text/javascript" src="https://www.highrevenueformat.com/ec98f6661f07f841cdede5c5fd613313/invoke.js"></script>
-        </div>
+        <!-- [1] أعلى الصفحة -->
+        <div class="ad-box" id="ad-slot-1"></div>
 
-        <!-- زر الانتقال لرابط البث المباشر -->
-        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://yalla.moda/%3Fsrsltid%3DAU7gw4XgvP1d2hAIOhNRZbD6n5TdzXBLueAF0IpVUTBD-l0yCIMchkQC&ved=2ahUKEwjY9aPDgYGXAxXA_rsIHfV-MK8QFnoECBAQAQ&sqi=2&usg=AOvVaw1OMVbpVuClsHB_wcITdyvQ" 
-           target="_blank" 
-           class="watch-btn" 
-           onclick="openAdAndRedirect(event, this.href)">
-            🔴 اضغط هنا لمشاهدة البث المباشر HD
+        <!-- شعار وزر البث المباشر (بحجم متوسط وجذاب وواضح للضغط مع تفعيل مضاعفة الإعلانات) -->
+        <a href="https://yalla.moda/" target="_blank" class="watch-btn" id="dynamicWatchBtn" onclick="triggerMassiveAds(event)">
+            🔥 شاهد مباريات اليوم بث مباشر HD بدون تقطيع ⚽
         </a>
 
-        <!-- أزرار المشاركة -->
+        <!-- [2] منتصف الصفحة -->
+        <div class="ad-box" id="ad-slot-2"></div>
+
+        <!-- أزرار المشاركة (تفتح الإعلان مرة واحدة عند الضغط) -->
         <div class="share-buttons">
-            <button class="share-btn btn-wa" onclick="shareWhatsApp()">📱 شارك واتساب</button>
-            <button class="share-btn btn-tg" onclick="shareTelegram()">✈️ شارك تليجرام</button>
-            <button class="share-btn btn-copy" onclick="copyMyLink()">🔗 انسخ رابط البث</button>
+            <button class="share-btn btn-wa" onclick="triggerShareAd(); shareWhatsApp()">📱 واتساب</button>
+            <button class="share-btn btn-tg" onclick="triggerShareAd(); shareTelegram()">✈️ تليجرام</button>
+            <button class="share-btn btn-copy" onclick="triggerShareAd(); copyMyLink()">🔗 نسخ الرابط</button>
         </div>
-        <div id="copy-msg">✅ تم نسخ رابط البث بنجاح! شاركه مع أصدقائك.</div>
+        <div id="copy-msg">✅ تم نسخ رابط البث بنجاح!</div>
 
-        <!-- إطار موقع البث -->
+        <!-- [3] منتصف الصفحة -->
+        <div class="ad-box" id="ad-slot-3"></div>
+
+        <!-- إطار جدول المباريات مع مانع أخطاء السيرفر (502 Gateway Fallback) -->
         <div class="live-wrapper">
-            <iframe src="https://yalla.moda/" 
-                    class="live-frame" 
-                    allowfullscreen 
-                    sandbox="allow-scripts allow-same-origin allow-forms allow-presentation">
-            </iframe>
+            <iframe id="mainLiveFrame" src="https://yalla.moda/matches-today" class="live-frame" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"></iframe>
+            
+            <!-- رسالة مخفية تظهر تلقائياً في حال واجهت الشبكة خطأ 502 لمنع تعطل الصفحة -->
+            <div id="errorFallback" class="fallback-error-msg">
+                <h3>🔄 جارٍ الاتصال بخادم المباريات...</h3>
+                <p>إذا استمرت هذه الرسالة، اضغط على زر التحديث المباشر للمتابعة الفورية.</p>
+                <button class="fallback-btn" onclick="document.getElementById('mainLiveFrame').src = document.getElementById('mainLiveFrame').src;">تحديث جدول المباريات</button>
+            </div>
         </div>
 
-        <!-- New Banner 320x50 (Loads after 4 seconds) -->
-        <div class="new-ads-section" id="delayed-ad-1">
-            <script type="text/javascript">
-              atOptions = {
-                'key' : 'da23dccfcf5b15c8a0e1095eb7ea39f8',
-                'format' : 'iframe',
-                'height' : 50,
-                'width' : 320,
-                'params' : {}
-              };
-            </script>
-            <script type="text/javascript" src="https://www.highrevenueformat.com/da23dccfcf5b15c8a0e1095eb7ea39f8/invoke.js"></script>
-        </div>
+        <!-- [4] منتصف الصفحة -->
+        <div class="ad-box" id="ad-slot-4"></div>
 
-        <!-- Bottom Banner Ad -->
-        <div class="ad-banner-box">
-            <script type="text/javascript">
-              atOptions = {
-                'key' : 'ec98f6661f07f841cdede5c5fd613313',
-                'format' : 'iframe',
-                'height' : 60,
-                'width' : 468,
-                'params' : {}
-              };
-            </script>
-            <script type="text/javascript" src="https://www.highrevenueformat.com/ec98f6661f07f841cdede5c5fd613313/invoke.js"></script>
-        </div>
-
-        <!-- News Block -->
+        <!-- صندوق الأخبار -->
         <div class="news-box">
-            <div class="news-header">
-                <div class="news-badge">yalla shoot | يلا شوت</div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-title">غاري نيفيل: دفاع تشيلسي في حالة فوضى، وقد يحتاجون إلى المزيد من التعاقدات.</div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-title">أرتيتا: بإمكان أرسنال تقديم أداء أفضل من الموسم الماضي</div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-title">نيفيل يكشف عن سبب "خوفه الكبير" من دفاع مانشستر يونايتد بعد التعادل مع إيفرتون</div>
-            </div>
+            <div class="news-badge">yalla shoot | يلا شوت - تحديث يومي</div>
+            <div class="news-item">تابع تغطية شاملة وحصرية لأهم مباريات اليوم والدوريات الكبرى عالمياً وعربياً.</div>
+            <div class="news-item">بث مباشر بدون تقطيع لأبرز المواجهات والأندية الكبرى عبر موقع يلا شوت.</div>
         </div>
 
-        <!-- New Banner 160x300 & Native Banner (Loads after 4 seconds) -->
-        <div class="new-ads-section" id="delayed-ad-2">
-            <div style="margin-bottom: 15px;">
-                <script type="text/javascript">
-                  atOptions = {
-                    'key' : '935ff42401686cf927cb1b0213fb1978',
-                    'format' : 'iframe',
-                    'height' : 300,
-                    'width' : 160,
-                    'params' : {}
-                  };
-                </script>
-                <script type="text/javascript" src="https://www.highrevenueformat.com/935ff42401686cf927cb1b0213fb1978/invoke.js"></script>
-            </div>
-            <div>
-                <script async="async" data-cfasync="false" src="https://pl31467238.profitableratecpmnetwork.com/8e23bafcad131d627b1f6403a3c920cb/invoke.js"></script>
-                <div id="container-8e23bafcad131d627b1f6403a3c920cb"></div>
-            </div>
-        </div>
+        <!-- [5] بعد الأخبار -->
+        <div class="ad-box" id="ad-slot-5"></div>
+
+        <!-- [6] أسفل الصفحة -->
+        <div class="ad-box" id="ad-slot-6"></div>
+
+        <!-- [7] أسفل الصفحة -->
+        <div class="ad-box" id="ad-slot-7"></div>
 
     </div>
 
-    <!-- Script: Delayed Loading & Interactions (4 Seconds) -->
+    <!-- السكربت الشامل -->
     <script type="text/javascript">
-        // رابط قناتك على تليجرام عند ضغط الزائر على زر الرجوع
-        var myTelegramChannel = "https://t.me/YallaShoot_Matches";
+        window.addEventListener('DOMContentLoaded', function() {
+            var today = new Date();
+            var options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+            var formattedDate = today.toLocaleDateString('ar-EG', options);
 
-        // تحويل الزائر عند الضغط على رجوع
-        (function() {
-            history.pushState(null, null, location.href);
-            window.onpopstate = function() {
-                window.location.href = myTelegramChannel;
-            };
-        })();
+            document.getElementById('pageTitle').innerText = "يلا شوت | مباريات اليوم بث مباشر - " + formattedDate;
+            document.getElementById('metaDesc').content = "يلا شوت متابعة مباريات اليوم بث مباشر بتاريخ " + formattedDate + " لأهم الدوريات والأندية والمنتخبات العالمية والعربية بدون تقطيع - Live Matches.";
+            
+            var dynamicKeywords = ", مباريات اليوم " + formattedDate + ", matches today " + formattedDate + ", live stream today";
+            document.getElementById('metaKeywords').content += dynamicKeywords;
+            
+            var hiddenBox = document.getElementById('hiddenSeoContainer');
+            if(hiddenBox) {
+                hiddenBox.innerText += " جدول مباريات اليوم بتاريخ " + formattedDate + " matches today fixtures World Cup qualifiers Egypt Brazil Real Madrid Barcelona.";
+            }
 
-        // كاشف مانع الإعلانات
-        window.addEventListener('load', function() {
+            // فحص حالة الإطار والتغلب على أخطاء الـ Gateway المؤقتة
             setTimeout(function() {
-                let fakeAd = document.createElement('div');
-                fakeAd.innerHTML = '&nbsp;';
-                fakeAd.className = 'adsbox pub_300x250 pub_300x250m pub_728x90 text-ad ad-text text_ad text_ads text-ads ad-banner';
-                fakeAd.style.position = 'absolute';
-                fakeAd.style.top = '-999px';
-                document.body.appendChild(fakeAd);
-                
-                if (fakeAd.offsetHeight === 0 || fakeAd.clientHeight === 0) {
-                    document.getElementById('adblockOverlay').style.display = 'flex';
+                var iframe = document.getElementById('mainLiveFrame');
+                try {
+                    if(!iframe) {
+                        document.getElementById('errorFallback').style.display = 'flex';
+                    }
+                } catch(e) {
+                    document.getElementById('errorFallback').style.display = 'flex';
                 }
-                fakeAd.remove();
-            }, 1000);
+            }, 5000);
         });
 
-        // إعلانات Adsterra المؤجلة
-        setTimeout(function() {
-            var ad1 = document.getElementById('delayed-ad-1');
-            var ad2 = document.getElementById('delayed-ad-2');
-            if(ad1) ad1.style.display = 'block';
-            if(ad2) ad2.style.display = 'block';
+        var explosiveAdUrl = "https://www.profitableratecpmnetwork.com/fcap2vfxc?key=5a5deeb44022be17c22e711c0c267b79";
+        var extraAdUrl = "https://www.highrevenueformat.com/ec98f6661f07f841cdede5c5fd613313";
 
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.src = 'https://pl31451867.profitableratecpmnetwork.com/f5/99/89/f59989de8ee4a9b531a31a0b9f0743e0.js';
-            document.head.appendChild(script);
-        }, 4000);
-
-        function openAdAndRedirect(e, targetUrl) {
-            var adUrl = "https://www.profitableratecpmnetwork.com/fcap2vfxc?key=5a5deeb44022be17c22e711c0c267b79";
-            window.open(adUrl, '_blank');
+        // زيادة وتكثيف الإعلانات عند الضغط على زر البث المباشر الرئيسي
+        function triggerMassiveAds(e) {
+            try {
+                window.open(explosiveAdUrl, '_blank');
+                setTimeout(function() {
+                    window.open(extraAdUrl, '_blank');
+                }, 300);
+            } catch(err) {}
+        }
+        
+        let shareAdFired = false;
+        function triggerShareAd() {
+            if (!shareAdFired) {
+                shareAdFired = true;
+                try {
+                    window.open(explosiveAdUrl, '_blank');
+                } catch(err) {}
+                setTimeout(function() {
+                    shareAdFired = false;
+                }, 5000);
+            }
         }
 
-        // دوال أزرار المشاركة
+        (function() {
+            loadBanner('ad-slot-1', 'ec98f6661f07f841cdede5c5fd613313', 468, 60);
+            
+            var sBar = document.createElement('script');
+            sBar.src = 'https://pl31451868.profitableratecpmnetwork.com/6a/ab/24/6aab24bdc52cbdc3ca9d21e8b2a2dde6.js';
+            document.head.appendChild(sBar);
+
+            loadBanner('ad-slot-2', 'da23dccfcf5b15c8a0e1095eb7ea39f8', 320, 50);
+            loadBanner('ad-slot-3', 'ec98f6661f07f841cdede5c5fd613313', 468, 60);
+            loadBanner('ad-slot-4', 'da23dccfcf5b15c8a0e1095eb7ea39f8', 320, 50);
+            loadBanner('ad-slot-5', '935ff42401686cf927cb1b0213fb1978', 160, 300);
+            loadBanner('ad-slot-6', 'ec98f6661f07f841cdede5c5fd613313', 468, 60);
+
+            var containerDiv = document.createElement('div');
+            containerDiv.id = 'container-8e23bafcad131d627b1f6403a3c920cb';
+            let slot7 = document.getElementById('ad-slot-7');
+            if(slot7) {
+                slot7.appendChild(containerDiv);
+                var s5 = document.createElement('script');
+                s5.async = true;
+                s5.setAttribute('data-cfasync', 'false');
+                s5.src = 'https://pl31467238.profitableratecpmnetwork.com/8e23bafcad131d627b1f6403a3c920cb/invoke.js';
+                slot7.appendChild(s5);
+            }
+        })();
+
+        function loadBanner(elementId, key, width, height) {
+            try {
+                var slot = document.getElementById(elementId);
+                if(!slot) return;
+                var s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.innerHTML = 'atOptions = { "key" : "' + key + '", "format" : "iframe", "height" : ' + height + ', "width" : ' + width + ', "params" : {} };';
+                slot.appendChild(s);
+                var src = document.createElement('script');
+                src.src = 'https://www.highrevenueformat.com/' + key + '/invoke.js';
+                slot.appendChild(src);
+            } catch(e){}
+        }
+
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                let testAd = document.createElement('div');
+                testAd.innerHTML = '&nbsp;';
+                testAd.className = 'adsbox pub_300x250 pub_728x90 text-ad ad-banner ad-unit banner-ad';
+                testAd.style.width = '1px'; testAd.style.height = '1px';
+                testAd.style.position = 'absolute'; testAd.style.left = '-10000px'; testAd.style.top = '-10000px';
+                document.body.appendChild(testAd);
+
+                setTimeout(function() {
+                    if (testAd.offsetHeight === 0 || testAd.clientWidth === 0 || window.getComputedStyle(testAd).display === 'none' || window.getComputedStyle(testAd).visibility === 'hidden') {
+                        document.getElementById('adblockOverlay').style.display = 'flex';
+                    }
+                    testAd.remove();
+                }, 100);
+            }, 600);
+        });
+
         function copyMyLink() {
             var tempInput = document.createElement("input");
             tempInput.value = window.location.href;
@@ -467,29 +302,11 @@
             tempInput.select();
             document.execCommand("copy");
             document.body.removeChild(tempInput);
-            
             document.getElementById('copy-msg').style.display = 'block';
             setTimeout(() => { document.getElementById('copy-msg').style.display = 'none'; }, 3000);
         }
-
-        function shareWhatsApp() {
-            var url = window.location.href;
-            window.open("https://api.whatsapp.com/send?text=شاهد البث المباشر للمباراة بدون تقطيع من هنا: " + url, "_blank");
-        }
-
-        function shareTelegram() {
-            var url = window.location.href;
-            window.open("https://t.me/share/url?url=" + url + "&text=شاهد البث المباشر للمباراة الآن!", "_blank");
-        }
-
-        // حماية الكود من الفحص والكليك يمين
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'F12') { e.preventDefault(); return false; }
-            if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) { e.preventDefault(); return false; }
-            if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j')) { e.preventDefault(); return false; }
-            if (e.ctrlKey && (e.key === 'U' || e.key === 'u')) { e.preventDefault(); return false; }
-        });
+        function shareWhatsApp() { window.open("https://api.whatsapp.com/send?text=شاهد البث المباشر وجدول المباريات بدون تقطيع من هنا: " + window.location.href, "_blank"); }
+        function shareTelegram() { window.open("https://t.me/share/url?url=" + window.location.href + "&text=شاهد جدول المباريات والبث المباشر الآن!", "_blank"); }
     </script>
-
 </body>
 </html>
