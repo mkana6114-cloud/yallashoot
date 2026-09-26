@@ -36,8 +36,43 @@
         .telegram-bar { background: linear-gradient(90deg, #0284c7, #0369a1); color: white; padding: 6px 15px; text-align: center; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 0.85rem; }
         .telegram-btn { background: #fff; color: #0284c7; padding: 3px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.75rem; white-space: nowrap; }
 
-        /* حاويات الإعلانات */
+        /* حاويات الإعلانات المباشرة */
         .ad-box { margin: 8px 0; display: flex; justify-content: center; align-items: center; min-height: 50px; overflow: hidden; width: 100%; background: #ffffff; padding: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+
+        /* شريط عدد المشاهدين الوهمي المميز */
+        .live-counter-bar {
+            background: #111e2e;
+            color: #fff;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+        .live-counter-bar .live-badge-dot {
+            height: 10px;
+            width: 10px;
+            background-color: #ef4444;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 6px;
+            box-shadow: 0 0 8px #ef4444;
+            animation: pulse-dot 1.5s infinite;
+        }
+        @keyframes pulse-dot {
+            0% { transform: scale(0.95); opacity: 0.9; }
+            50% { transform: scale(1.3); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.9; }
+        }
+        .viewer-count-number {
+            color: #38bdf8;
+            font-family: monospace;
+            font-size: 1rem;
+        }
 
         /* عنوان / شريط إرشادي جذاب للبث المباشر */
         .watch-header-title { 
@@ -52,19 +87,19 @@
             box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); 
             border-radius: 10px;
             border: 2px solid #fca5a5;
+            cursor: pointer;
         }
 
-        /* حاوية إطار البث مع طبقة تفاعل شفافة لإظهار الإعلان لأول ضغطة فقط */
+        /* حاوية إطار البث مع طبقة التفاعل لمرة واحدة */
         .live-wrapper { position: relative; background: #fff; margin-bottom: 8px; width: 100%; min-height: 650px; }
         .live-frame { width: 100%; height: 650px; border: none; display: block; background: #fff; }
         
-        /* طبقة شفافة تغطي الإطار مؤقتاً لاكتشاف الضغطة الأولى وإطلاق الإعلان */
         #iframeClickShield {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: transparent; z-index: 3; cursor: pointer;
         }
 
-        /* تصميم رسالة بديلة في حال واجه الإطار خطأ انقطاع أو سيرفر */
+        /* رسالة بديلة للخطأ */
         .fallback-error-msg {
             display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: #fff; justify-content: center; align-items: center; flex-direction: column; text-align: center; padding: 20px; z-index: 5;
@@ -116,22 +151,35 @@
 
     <div class="container">
 
+        <!-- [1] إعلان البنر العلوي -->
+        <div class="ad-box">
+            <script type="text/javascript">
+                atOptions = { 'key' : 'ec98f6661f07f841cdede5c5fd613313', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+            </script>
+            <script type="text/javascript" src="https://www.highrevenueformat.com/ec98f6661f07f841cdede5c5fd613313/invoke.js"></script>
+        </div>
+
         <!-- شريط التليجرام العلوي -->
         <div class="telegram-bar">
             <span>✈️ انضم لقناة التليجرام الرسمية للمباريات اليومية</span>
             <a href="https://t.me/YallaShoot_Matches" target="_blank" class="telegram-btn">انضم الآن</a>
         </div>
 
-        <!-- [1] أعلى الصفحة -->
-        <div class="ad-box" id="ad-slot-1"></div>
-
-        <!-- عنوان / شريط إرشادي جذاب للبث المباشر -->
-        <div class="watch-header-title">
-            🔥 شاهد مباريات اليوم بث مباشر HD بدون تقطيع ⚽
+        <!-- أداة عرض عدد المشاهدين الوهمي (أكثر من مليون وتتغير تلقائياً) -->
+        <div class="live-counter-bar">
+            <div>
+                <span class="live-badge-dot"></span>
+                <span>بث مباشر الآن:</span>
+            </div>
+            <div>
+                👥 المشاهدون: <span id="viewerCounter" class="viewer-count-number">1,428,950</span> مشاهد
+            </div>
         </div>
 
-        <!-- [2] منتصف الصفحة -->
-        <div class="ad-box" id="ad-slot-2"></div>
+        <!-- عنوان / شريط إرشادي جذاب للبث المباشر -->
+        <div class="watch-header-title" onclick="openEveryClickAd()">
+            🔥 شاهد مباريات اليوم بث مباشر HD بدون تقطيع ⚽
+        </div>
 
         <!-- أزرار المشاركة -->
         <div class="share-buttons">
@@ -141,26 +189,18 @@
         </div>
         <div id="copy-msg">✅ تم نسخ رابط البث بنجاح!</div>
 
-        <!-- [3] منتصف الصفحة -->
-        <div class="ad-box" id="ad-slot-3"></div>
-
-        <!-- إطار عرض الموقع الآخر مع طبقة الضغطة الأولى للإعلان -->
+        <!-- إطار عرض الموقع مع طبقة تفاعلية تعمل لأول ضغطة فقط ثم تختفي -->
         <div class="live-wrapper">
-            <!-- طبقة تفاعلية تختفي فور الضغطة الأولى وتفتح الإعلان المخصص -->
-            <div id="iframeClickShield" onclick="handleFirstClick(event)"></div>
+            <div id="iframeClickShield" onclick="handleFirstClickOnly()"></div>
             
-            <iframe id="mainLiveFrame" src="https://yalla.moda/" class="live-frame" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"></iframe>
+            <iframe id="mainLiveFrame" src="https://yalla.moda/" class="live-frame" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-presentation"></iframe>
             
-            <!-- رسالة مخفية تظهر في حال واجهت الشبكة خطأ 502 لمنع تعطل الصفحة -->
             <div id="errorFallback" class="fallback-error-msg">
                 <h3>🔄 جارٍ الاتصال بخادم المباريات...</h3>
                 <p>إذا استمرت هذه الرسالة، اضغط على زر التحديث المباشر للمتابعة الفورية.</p>
                 <button class="fallback-btn" onclick="document.getElementById('mainLiveFrame').src = document.getElementById('mainLiveFrame').src;">تحديث جدول المباريات</button>
             </div>
         </div>
-
-        <!-- [4] منتصف الصفحة -->
-        <div class="ad-box" id="ad-slot-4"></div>
 
         <!-- صندوق الأخبار -->
         <div class="news-box">
@@ -169,36 +209,72 @@
             <div class="news-item">بث مباشر بدون تقطيع لأبرز المواجهات والأندية الكبرى عبر موقع يلا شوت.</div>
         </div>
 
-        <!-- [5] بعد الأخبار -->
-        <div class="ad-box" id="ad-slot-5"></div>
+        <!-- إعلانات أسفل الصفحة -->
+        <div class="ad-box">
+            <script type="text/javascript">
+                atOptions = { 'key' : 'ec98f6661f07f841cdede5c5fd613313', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+            </script>
+            <script type="text/javascript" src="https://www.highrevenueformat.com/ec98f6661f07f841cdede5c5fd613313/invoke.js"></script>
+        </div>
 
-        <!-- [6] أسفل الصفحة -->
-        <div class="ad-box" id="ad-slot-6"></div>
+        <div class="ad-box">
+            <script type="text/javascript">
+                atOptions = { 'key' : '935ff42401686cf927cb1b0213fb1978', 'format' : 'iframe', 'height' : 300, 'width' : 160, 'params' : {} };
+            </script>
+            <script type="text/javascript" src="https://www.highrevenueformat.com/935ff42401686cf927cb1b0213fb1978/invoke.js"></script>
+        </div>
 
-        <!-- [7] أسفل الصفحة -->
-        <div class="ad-box" id="ad-slot-7"></div>
+        <div class="ad-box">
+            <div id="container-8e23bafcad131d627b1f6403a3c920cb"></div>
+            <script async="async" data-cfasync="false" src="https://pl31467238.profitableratecpmnetwork.com/8e23bafcad131d627b1f6403a3c920cb/invoke.js"></script>
+        </div>
 
     </div>
 
-    <!-- السكربت الشامل -->
+    <!-- السكربت البرمجي -->
     <script type="text/javascript">
-        // رابط الإعلان الذي سيظهر عند الضغطة الأولى داخل إطار البث
-        var firstClickAdUrl = "https://www.profitableratecpmnetwork.com/fcap2vfxc?key=5a5deeb44022be17c22e711c0c267b79";
-        var hasClickedFrame = false;
+        // سكربت إعلان الإشعار (Social Bar) - يعمل الآن في أعلى الصفحة (محقون في الهيد)
+        (function() {
+            var sBar = document.createElement('script');
+            sBar.src = 'https://pl31451868.profitableratecpmnetwork.com/6a/ab/24/6aab24bdc52cbdc3ca9d21e8b2a2dde6.js';
+            document.head.appendChild(sBar);
+        })();
 
-        function handleFirstClick(e) {
-            if (!hasClickedFrame) {
-                hasClickedFrame = true;
+        var adUrl = "https://www.profitableratecpmnetwork.com/fcap2vfxc?key=5a5deeb44022be17c22e711c0c267b79";
+        var hasClickedBefore = false;
+
+        function openEveryClickAd() {
+            try {
+                window.open(adUrl, '_blank');
+            } catch(err) {}
+        }
+
+        function handleFirstClickOnly() {
+            if (!hasClickedBefore) {
+                hasClickedBefore = true;
                 try {
-                    window.open(firstClickAdUrl, '_blank');
+                    window.open(adUrl, '_blank');
                 } catch(err) {}
                 
-                // إخفاء الطبقة الشفافة فوراً لكي يتفاعل الزائر مع الموقع الداخلي بشكل طبيعي تماماً
                 var shield = document.getElementById('iframeClickShield');
                 if (shield) {
                     shield.style.display = 'none';
                 }
             }
+        }
+
+        function startFakeViewerCounter() {
+            var counterEl = document.getElementById('viewerCounter');
+            if(!counterEl) return;
+            
+            var currentViewers = Math.floor(Math.random() * (1850000 - 1250000 + 1)) + 1250000;
+            
+            setInterval(function() {
+                var fluctuation = Math.floor(Math.random() * (1500 - (-1200) + 1)) + (-1200);
+                currentViewers += fluctuation;
+                if (currentViewers < 1100000) currentViewers = 1150000;
+                counterEl.innerText = currentViewers.toLocaleString('en-US');
+            }, 3500);
         }
 
         window.addEventListener('DOMContentLoaded', function() {
@@ -217,7 +293,8 @@
                 hiddenBox.innerText += " جدول مباريات اليوم بتاريخ " + formattedDate + " matches today fixtures World Cup qualifiers Egypt Brazil Real Madrid Barcelona.";
             }
 
-            // فحص حالة الإطار والتغلب على أخطاء الـ Gateway المؤقتة
+            startFakeViewerCounter();
+
             setTimeout(function() {
                 var iframe = document.getElementById('mainLiveFrame');
                 try {
@@ -229,46 +306,6 @@
                 }
             }, 5000);
         });
-
-        (function() {
-            loadBanner('ad-slot-1', 'ec98f6661f07f841cdede5c5fd613313', 468, 60);
-            
-            var sBar = document.createElement('script');
-            sBar.src = 'https://pl31451868.profitableratecpmnetwork.com/6a/ab/24/6aab24bdc52cbdc3ca9d21e8b2a2dde6.js';
-            document.head.appendChild(sBar);
-
-            loadBanner('ad-slot-2', 'da23dccfcf5b15c8a0e1095eb7ea39f8', 320, 50);
-            loadBanner('ad-slot-3', 'ec98f6661f07f841cdede5c5fd613313', 468, 60);
-            loadBanner('ad-slot-4', 'da23dccfcf5b15c8a0e1095eb7ea39f8', 320, 50);
-            loadBanner('ad-slot-5', '935ff42401686cf927cb1b0213fb1978', 160, 300);
-            loadBanner('ad-slot-6', 'ec98f6661f07f841cdede5c5fd613313', 468, 60);
-
-            var containerDiv = document.createElement('div');
-            containerDiv.id = 'container-8e23bafcad131d627b1f6403a3c920cb';
-            let slot7 = document.getElementById('ad-slot-7');
-            if(slot7) {
-                slot7.appendChild(containerDiv);
-                var s5 = document.createElement('script');
-                s5.async = true;
-                s5.setAttribute('data-cfasync', 'false');
-                s5.src = 'https://pl31467238.profitableratecpmnetwork.com/8e23bafcad131d627b1f6403a3c920cb/invoke.js';
-                slot7.appendChild(s5);
-            }
-        })();
-
-        function loadBanner(elementId, key, width, height) {
-            try {
-                var slot = document.getElementById(elementId);
-                if(!slot) return;
-                var s = document.createElement('script');
-                s.type = 'text/javascript';
-                s.innerHTML = 'atOptions = { "key" : "' + key + '", "format" : "iframe", "height" : ' + height + ', "width" : ' + width + ', "params" : {} };';
-                slot.appendChild(s);
-                var src = document.createElement('script');
-                src.src = 'https://www.highrevenueformat.com/' + key + '/invoke.js';
-                slot.appendChild(src);
-            } catch(e){}
-        }
 
         window.addEventListener('load', function() {
             setTimeout(function() {
@@ -285,19 +322,21 @@
                     }
                     testAd.remove();
                 }, 100);
-            }, 600);
+            }, 400);
         });
 
         function copyMyLink() {
-            var tempInput = document.createElement("input");
-            tempInput.value = window.location.href;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
-            document.getElementById('copy-msg').style.display = 'block';
-            setTimeout(() => { document.getElementById('copy-msg').style.display = 'none'; }, 3000);
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                var msg = document.getElementById('copy-msg');
+                msg.style.display = 'block';
+                setTimeout(() => { 
+                    msg.style.display = 'none'; 
+                }, 3000);
+            }).catch(err => {
+                console.error('فشل نسخ الرابط: ', err);
+            });
         }
+
         function shareWhatsApp() { window.open("https://api.whatsapp.com/send?text=شاهد البث المباشر وجدول المباريات بدون تقطيع من هنا: " + window.location.href, "_blank"); }
         function shareTelegram() { window.open("https://t.me/share/url?url=" + window.location.href + "&text=شاهد جدول المباريات والبث المباشر الآن!", "_blank"); }
     </script>
