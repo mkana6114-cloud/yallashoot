@@ -12,7 +12,7 @@
 
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-        html, body { width: 100%; margin: 0; padding: 0; overflow-x: hidden; background-color: #e9ecef; color: #333; }
+        html, body { width: 100%; margin: 0; padding: 0; overflow-x: hidden; background-color: #e9ecef; color: #222; }
 
         /* نافذة مانع الإعلانات الإجبارية */
         #adblockOverlay {
@@ -22,7 +22,7 @@
         }
         .adblock-box { background: #fff; border: 3px solid #a81c07; border-radius: 12px; padding: 30px; max-width: 450px; width: 100%; box-shadow: 0 15px 40px rgba(168, 28, 7, 0.4); }
         .adblock-box h2 { color: #a81c07; margin-bottom: 12px; font-size: 1.4rem; }
-        .adblock-box p { color: #4b5563; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+        .adblock-box p { color: #333; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
         .adblock-btn { background: #a81c07; color: #fff; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 1rem; width: 100%; }
 
         /* Header */
@@ -34,7 +34,7 @@
 
         /* شريط التليجرام العلوي */
         .telegram-bar { background: linear-gradient(90deg, #0284c7, #0369a1); color: white; padding: 6px 15px; text-align: center; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 0.85rem; }
-        .telegram-btn { background: #fff; color: #0284c7; padding: 3px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.75rem; white-space: nowrap; }
+        .telegram-btn { background: #fff; color: #0284c7; padding: 4px 12px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.75rem; white-space: nowrap; }
 
         /* حاويات الإعلانات المباشرة */
         .ad-box { margin: 8px 0; display: flex; justify-content: center; align-items: center; min-height: 50px; overflow: hidden; width: 100%; background: #ffffff; padding: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
@@ -105,14 +105,14 @@
             background: #fff; justify-content: center; align-items: center; flex-direction: column; text-align: center; padding: 20px; z-index: 5;
         }
         .fallback-error-msg h3 { color: #dc2626; margin-bottom: 10px; font-size: 1.3rem; }
-        .fallback-error-msg p { color: #555; font-size: 0.95rem; margin-bottom: 15px; }
+        .fallback-error-msg p { color: #333; font-size: 0.95rem; margin-bottom: 15px; }
         .fallback-btn { background: #0284c7; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; text-decoration: none; }
 
         /* أزرار المشاركة */
         .share-buttons { display: flex; gap: 8px; margin-bottom: 8px; justify-content: center; flex-wrap: wrap; padding: 0 10px; }
-        .share-btn { padding: 6px 10px; border: none; border-radius: 5px; font-size: 0.8rem; font-weight: bold; cursor: pointer; color: #fff; }
-        .btn-copy { background: #3b82f6; } .btn-tg { background: #0ea5e9; } .btn-wa { background: #22c55e; }
-        #copy-msg { display: none; color: #22c55e; font-size: 0.8rem; margin-bottom: 8px; text-align: center; font-weight: bold; }
+        .share-btn { padding: 8px 14px; border: none; border-radius: 5px; font-size: 0.85rem; font-weight: bold; cursor: pointer; color: #fff; }
+        .btn-copy { background: #2563eb; } .btn-tg { background: #0284c7; } .btn-wa { background: #16a34a; }
+        #copy-msg { display: none; color: #16a34a; font-size: 0.85rem; margin-bottom: 8px; text-align: center; font-weight: bold; }
 
         /* حاوية الكلمات المفتاحية المخفية لمحركات البحث */
         .seo-hidden-keywords {
@@ -123,7 +123,7 @@
         /* صندوق الأخبار */
         .news-box { background: #fff; padding: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 8px; }
         .news-badge { background: #111e2e; color: white; padding: 4px 12px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; display: inline-block; margin-bottom: 8px; }
-        .news-item { background: #f4f5f7; border-radius: 6px; padding: 10px; margin-bottom: 8px; font-size: 0.85rem; font-weight: bold; color: #333; }
+        .news-item { background: #f4f5f7; border-radius: 6px; padding: 10px; margin-bottom: 8px; font-size: 0.85rem; font-weight: bold; color: #222; }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -140,13 +140,12 @@
     <!-- صندوق الكلمات المفتاحية الشاملة -->
     <div class="seo-hidden-keywords" id="hiddenSeoContainer">
         يلا شوت yalla shoot yalla-shoot كورة لايف koora live بث مباشر live stream مباريات اليوم matches today الدوري الإنجليزي Premier League الدوري الإسباني La Liga الدوري الإيطالي Serie A الدوري الألماني Bundesliga الدوري الفرنسي Ligue 1 دوري أبطال أوروبا Champions League ريال مدريد Real Madrid برشلونة Barcelona ليفربول Liverpool مانشستر سيتي Manchester City مانشستر يونايتد Manchester United أرسنال Arsenal بايرن ميونخ Bayern Munich باريس سان جيرمان Paris Saint-Germain كريستيانو رونالدو Cristiano Ronaldo ليونيل ميسي Lionel Messi كيليان مبابي Kylian Mbappe إيرلينغ هالاند Erling Haaland محمد صلاح Mohamed Salah الهلال Al Hilal النصر Al Nassr الاتحاد Al Ittihad الأهلي Al Ahli الزمالك Zamalek نتائج المباريات live scores جدول المباريات fixtures أهداف اليوم match goals اهداف وملخصات.
-        منتخب مصر Egypt national football team, منتخب السعودية Saudi Arabia national team, منتخب المغرب Morocco national team, منتخب الجزائر Algeria national team, منتخب تونس Tunisia national team, منتخب قطر Qatar national team, منتخب الإمارات UAE national team, منتخب العراق Iraq national team, منتخب الأردن Jordan national team, منتخب البرازيل Brazil national team, منتخب الأرجنتين Argentina national team, منتخب فرنسا France national team, منتخب إنجلترا England national team, منتخب ألمانيا Germany national team, منتخب إسبانيا Spain national team, منتخب إيطاليا Italy national team, منتخب البرتغال Portugal national team, منتخب هولندا Netherlands national team, منتخب بلجيكا Belgium national team, منتخب كرواتيا Croatia national team, منتخب الأوروغواي Uruguay national team, منتخب السنغال Senegal national team, منتخب كاميرون Cameroon national team, منتخب نيجيريا Nigeria national team, منتخب غانا Ghana national team, منتخب كوت ديفوار Ivory Coast national team, كأس العالم World Cup, تصفيات كأس العالم World Cup qualifiers, كأس أمم إفريقيا Africa Cup of Nations, كأس أمم أوروبا Euro, كوبا أمريكا Copa America.
     </div>
 
     <header>
-        <div class="header-icon">🌙</div>
+        <div class="header-icon" role="button" aria-label="الوضع الليلي">🌙</div>
         <div class="logo-box">يلا شوت</div>
-        <div class="header-icon">☰</div>
+        <div class="header-icon" role="button" aria-label="قائمة التنقل">☰</div>
     </header>
 
     <div class="container">
@@ -162,10 +161,10 @@
         <!-- شريط التليجرام العلوي -->
         <div class="telegram-bar">
             <span>✈️ انضم لقناة التليجرام الرسمية للمباريات اليومية</span>
-            <a href="https://t.me/YallaShoot_Matches" target="_blank" class="telegram-btn">انضم الآن</a>
+            <a href="https://t.me/YallaShoot_Matches" target="_blank" class="telegram-btn" aria-label="انضم لقناة التليجرام">انضم الآن</a>
         </div>
 
-        <!-- أداة عرض عدد المشاهدين الوهمي (أكثر من مليون وتتغير تلقائياً) -->
+        <!-- أداة عرض عدد المشاهدين الوهمي -->
         <div class="live-counter-bar">
             <div>
                 <span class="live-badge-dot"></span>
@@ -177,23 +176,23 @@
         </div>
 
         <!-- عنوان / شريط إرشادي جذاب للبث المباشر -->
-        <div class="watch-header-title" onclick="openEveryClickAd()">
+        <div class="watch-header-title" onclick="openEveryClickAd()" role="button" tabindex="0">
             🔥 شاهد مباريات اليوم بث مباشر HD بدون تقطيع ⚽
         </div>
 
         <!-- أزرار المشاركة -->
         <div class="share-buttons">
-            <button class="share-btn btn-wa" onclick="shareWhatsApp()">📱 واتساب</button>
-            <button class="share-btn btn-tg" onclick="shareTelegram()">✈️ تليجرام</button>
-            <button class="share-btn btn-copy" onclick="copyMyLink()">🔗 نسخ الرابط</button>
+            <button class="share-btn btn-wa" onclick="shareWhatsApp()" aria-label="مشاركة عبر واتساب">📱 واتساب</button>
+            <button class="share-btn btn-tg" onclick="shareTelegram()" aria-label="مشاركة عبر تليجرام">✈️ تليجرام</button>
+            <button class="share-btn btn-copy" onclick="copyMyLink()" aria-label="نسخ رابط البث">🔗 نسخ الرابط</button>
         </div>
         <div id="copy-msg">✅ تم نسخ رابط البث بنجاح!</div>
 
-        <!-- إطار عرض الموقع مع طبقة تفاعلية تعمل لأول ضغطة فقط ثم تختفي -->
+        <!-- إطار عرض الموقع مع طبقة تفاعلية -->
         <div class="live-wrapper">
-            <div id="iframeClickShield" onclick="handleFirstClickOnly()"></div>
+            <div id="iframeClickShield" onclick="handleFirstClickOnly()" role="button" aria-label="تشغيل البث"></div>
             
-            <iframe id="mainLiveFrame" src="https://yalla.moda/" class="live-frame" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-presentation"></iframe>
+            <iframe id="mainLiveFrame" src="https://yalla.moda/" class="live-frame" title="بث مباشر للمباريات" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-presentation"></iframe>
             
             <div id="errorFallback" class="fallback-error-msg">
                 <h3>🔄 جارٍ الاتصال بخادم المباريات...</h3>
@@ -233,7 +232,6 @@
 
     <!-- السكربت البرمجي -->
     <script type="text/javascript">
-        // سكربت إعلان الإشعار (Social Bar) - يعمل الآن في أعلى الصفحة (محقون في الهيد)
         (function() {
             var sBar = document.createElement('script');
             sBar.src = 'https://pl31451868.profitableratecpmnetwork.com/6a/ab/24/6aab24bdc52cbdc3ca9d21e8b2a2dde6.js';
@@ -308,7 +306,7 @@
         });
 
         window.addEventListener('load', function() {
-            setTimeout(function() {
+            setTimeout(forLoadCheck => {
                 let testAd = document.createElement('div');
                 testAd.innerHTML = '&nbsp;';
                 testAd.className = 'adsbox pub_300x250 pub_728x90 text-ad ad-banner ad-unit banner-ad';
