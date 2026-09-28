@@ -192,7 +192,6 @@
         <div class="live-wrapper">
             <div id="iframeClickShield" onclick="handleFirstClickOnly()" role="button" aria-label="تشغيل البث"></div>
             
-            <!-- تم تقييد الـ sandbox لمنع تفاعل وتليجرام المصدر الخارجي -->
             <iframe id="mainLiveFrame" src="https://yalla.moda/" class="live-frame" title="بث مباشر للمباريات" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
             
             <div id="errorFallback" class="fallback-error-msg">
@@ -233,9 +232,9 @@
 
     <!-- السكربت البرمجي -->
     <script type="text/javascript">
-        // [1] كود زر الرجوع الخفيف والنهائي لتوجيه الزائر إلى قناتك الخاصة على التليجرام
+        // [1] زر الرجوع النهائي لتوجيه الزائر إلى قناتك على التليجرام
         (function() {
-            var telegramChannelUrl = "https://t.me/YallaShoot_Matches"; // ضع رابط قناتك هنا
+            var telegramChannelUrl = "https://t.me/YallaShoot_Matches"; 
             history.pushState(null, null, location.href);
             window.addEventListener('popstate', function() {
                 window.location.href = telegramChannelUrl;
