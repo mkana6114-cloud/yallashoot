@@ -14,7 +14,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
         html, body { width: 100%; margin: 0; padding: 0; overflow-x: hidden; background-color: #e9ecef; color: #111; }
 
-        /* نافذة مانع الإعلانات الإجبارية */
         #adblockOverlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(11, 19, 30, 0.99); z-index: 999999;
@@ -25,81 +24,46 @@
         .adblock-box p { color: #111; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
         .adblock-btn { background: #a81c07; color: #fff; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 1rem; width: 100%; }
 
-        /* Header */
         header { background: #fff; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 8px; width: 100%; }
         .header-icon { background: #111e2e; color: #fff; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
         .logo-box { background: #a81c07; color: #fff; padding: 5px 15px; border-radius: 6px; font-size: 1.2rem; font-weight: bold; }
 
         .container { width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
 
-        /* شريط التليجرام العلوي */
         .telegram-bar { background: linear-gradient(90deg, #0284c7, #0369a1); color: white; padding: 6px 15px; text-align: center; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 0.85rem; }
         .telegram-btn { background: #fff; color: #0284c7; padding: 4px 12px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.75rem; white-space: nowrap; }
 
-        /* حاويات الإعلانات المباشرة */
         .ad-box { margin: 8px 0; display: flex; justify-content: center; align-items: center; min-height: 50px; overflow: hidden; width: 100%; background: #ffffff; padding: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
 
-        /* شريط عدد المشاهدين الوهمي المميز */
         .live-counter-bar {
-            background: #111e2e;
-            color: #fff;
-            padding: 8px 12px;
-            margin-bottom: 8px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.9rem;
-            font-weight: bold;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            background: #111e2e; color: #fff; padding: 8px 12px; margin-bottom: 8px; border-radius: 8px;
+            display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; font-weight: bold; box-shadow: 0 2px 6px rgba(0,0,0,0.15);
         }
         .live-counter-bar .live-badge-dot {
-            height: 10px;
-            width: 10px;
-            background-color: #ef4444;
-            border-radius: 50%;
-            display: inline-block;
-            margin-left: 6px;
-            box-shadow: 0 0 8px #ef4444;
-            animation: pulse-dot 1.5s infinite;
+            height: 10px; width: 10px; background-color: #ef4444; border-radius: 50%; display: inline-block; margin-left: 6px;
+            box-shadow: 0 0 8px #ef4444; animation: pulse-dot 1.5s infinite;
         }
         @keyframes pulse-dot {
             0% { transform: scale(0.95); opacity: 0.9; }
             50% { transform: scale(1.3); opacity: 1; }
             100% { transform: scale(0.95); opacity: 0.9; }
         }
-        .viewer-count-number {
-            color: #38bdf8;
-            font-family: monospace;
-            font-size: 1rem;
-        }
+        .viewer-count-number { color: #38bdf8; font-family: monospace; font-size: 1rem; }
 
-        /* عنوان / شريط إرشادي جذاب للبث المباشر */
         .watch-header-title { 
-            display: block; 
-            background: linear-gradient(135deg, #dc2626, #7f1d1d); 
-            color: #fff; 
-            text-align: center; 
-            padding: 14px 12px; 
-            font-size: 1.25rem; 
-            font-weight: bold; 
-            margin-bottom: 8px; 
-            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); 
-            border-radius: 10px;
-            border: 2px solid #fca5a5;
-            cursor: pointer;
+            display: block; background: linear-gradient(135deg, #dc2626, #7f1d1d); color: #fff; text-align: center; 
+            padding: 14px 12px; font-size: 1.25rem; font-weight: bold; margin-bottom: 8px; 
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); border-radius: 10px; border: 2px solid #fca5a5; cursor: pointer;
         }
 
-        /* حاوية إطار البث مع طبقة الحماية الذكية المتكررة لمنع النوافذ الخارجية */
         .live-wrapper { position: relative; background: #fff; margin-bottom: 8px; width: 100%; min-height: 650px; }
         .live-frame { width: 100%; height: 650px; border: none; display: block; background: #fff; }
         
         #iframeClickShield {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.01); z-index: 5; cursor: pointer;
+            background: transparent; z-index: 5; cursor: pointer;
         }
 
-        /* رسالة بديلة للخطأ */
         .fallback-error-msg {
             display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: #fff; justify-content: center; align-items: center; flex-direction: column; text-align: center; padding: 20px; z-index: 6;
@@ -108,19 +72,16 @@
         .fallback-error-msg p { color: #111; font-size: 0.95rem; margin-bottom: 15px; }
         .fallback-btn { background: #0284c7; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; text-decoration: none; }
 
-        /* أزرار المشاركة */
         .share-buttons { display: flex; gap: 8px; margin-bottom: 8px; justify-content: center; flex-wrap: wrap; padding: 0 10px; }
         .share-btn { padding: 8px 14px; border: none; border-radius: 5px; font-size: 0.85rem; font-weight: bold; cursor: pointer; color: #fff; }
         .btn-copy { background: #1d4ed8; } .btn-tg { background: #0284c7; } .btn-wa { background: #15803d; }
         #copy-msg { display: none; color: #15803d; font-size: 0.85rem; margin-bottom: 8px; text-align: center; font-weight: bold; }
 
-        /* حاوية الكلمات المفتاحية المخفية لمحركات البحث */
         .seo-hidden-keywords {
             position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; 
             overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
         }
 
-        /* صندوق الأخبار */
         .news-box { background: #fff; padding: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 8px; }
         .news-badge { background: #111e2e; color: white; padding: 4px 12px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; display: inline-block; margin-bottom: 8px; }
         .news-item { background: #f4f5f7; border-radius: 6px; padding: 10px; margin-bottom: 8px; font-size: 0.85rem; font-weight: bold; color: #111; }
@@ -128,7 +89,6 @@
 </head>
 <body oncontextmenu="return false;">
 
-    <!-- نافذة مانع الإعلانات الإجبارية -->
     <div id="adblockOverlay">
         <div class="adblock-box">
             <h2>⚠️ تنبيه هام: تم رصد مانع إعلانات!</h2>
@@ -137,7 +97,6 @@
         </div>
     </div>
 
-    <!-- صندوق الكلمات المفتاحية الشاملة -->
     <div class="seo-hidden-keywords" id="hiddenSeoContainer">
         يلا شوت yalla shoot yalla-shoot كورة لايف koora live بث مباشر live stream مباريات اليوم matches today الدوري الإنجليزي Premier League الدوري الإسباني La Liga الدوري الإيطالي Serie A الدوري الألماني Bundesliga الدوري الفرنسي Ligue 1 دوري أبطال أوروبا Champions League ريال مدريد Real Madrid برشلونة Barcelona ليفربول Liverpool مانشستر سيتي Manchester City مانشستر يونايتد Manchester United أرسنال Arsenal بايرن ميونخ Bayern Munich باريس سان جيرمان Paris Saint-Germain كريستيانو رونالدو Cristiano Ronaldo ليونيل ميسي Lionel Messi كيليان مبابي Kylian Mbappe إيرلينغ هالاند Erling Haaland محمد صلاح Mohamed Salah الهلال Al Hilal النصر Al Nassr الاتحاد Al Ittihad الأهلي Al Ahli الزمالك Zamalek نتائج المباريات live scores جدول المباريات fixtures أهداف اليوم match goals اهداف وملخصات.
         منتخب مصر Egypt national football team, منتخب السعودية Saudi Arabia national team, منتخب المغرب Morocco national team, منتخب الجزائر Algeria national team, منتخب تونس Tunisia national team, منتخب قطر Qatar national team, منتخب الإمارات UAE national team, منتخب العراق Iraq national team, منتخب الأردن Jordan national team, منتخب البرازيل Brazil national team, منتخب الأرجنتين Argentina national team, منتخب فرنسا France national team, منتخب إنجلترا England national team, منتخب ألمانيا Germany national team, منتخب إسبانيا Spain national team, منتخب إيطاليا Italy national team, منتخب البرتغال Portugal national team, منتخب هولندا Netherlands national team, منتخب بلجيكا Belgium national team, منتخب كرواتيا Croatia national team, منتخب الأوروغواي Uruguay national team, منتخب السنغال Senegal national team, منتخب كاميرون Cameroon national team, منتخب نيجيريا Nigeria national team, منتخب غانا Ghana national team, منتخب كوت ديفوار Ivory Coast national team, كأس العالم World Cup, تصفيات كأس العالم World Cup qualifiers, كأس أمم إفريقيا Africa Cup of Nations, كأس أمم أوروبا Euro, كوبا أمريكا Copa America.
@@ -151,7 +110,6 @@
 
     <div class="container">
 
-        <!-- [1] إعلان البنر العلوي -->
         <div class="ad-box">
             <script type="text/javascript">
                 atOptions = { 'key' : 'ec98f6661f07f841cdede5c5fd613313', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
@@ -159,13 +117,11 @@
             <script type="text/javascript" src="https://www.highrevenueformat.com/ec98f6661f07f841cdede5c5fd613313/invoke.js"></script>
         </div>
 
-        <!-- شريط التليجرام العلوي -->
         <div class="telegram-bar">
             <span>✈️ انضم لقناة التليجرام الرسمية للمباريات اليومية</span>
             <a href="https://t.me/YallaShoot_Matches" target="_blank" class="telegram-btn" aria-label="انضم لقناة التليجرام">انضم الآن</a>
         </div>
 
-        <!-- أداة عرض عدد المشاهدين الوهمي -->
         <div class="live-counter-bar">
             <div>
                 <span class="live-badge-dot"></span>
@@ -176,12 +132,10 @@
             </div>
         </div>
 
-        <!-- عنوان / شريط إرشادي جذاب للبث المباشر -->
         <div class="watch-header-title" onclick="openEveryClickAd()" role="button" tabindex="0">
             🔥 شاهد مباريات اليوم بث مباشر HD بدون تقطيع ⚽
         </div>
 
-        <!-- أزرار المشاركة -->
         <div class="share-buttons">
             <button class="share-btn btn-wa" onclick="shareWhatsApp()" aria-label="مشاركة عبر واتساب">📱 واتساب</button>
             <button class="share-btn btn-tg" onclick="shareTelegram()" aria-label="مشاركة عبر تليجرام">✈️ تليجرام</button>
@@ -189,10 +143,10 @@
         </div>
         <div id="copy-msg">✅ تم نسخ رابط البث بنجاح!</div>
 
-        <!-- إطار عرض الموقع مع طبقة حماية تقيد النوافذ المنبثقة الخارجية -->
         <div class="live-wrapper">
             <div id="iframeClickShield" onclick="handleFirstClickOnly()" role="button" aria-label="تشغيل البث"></div>
             
+            <!-- تم تعديل الـ sandbox هنا لمنع الروابط الخارجية والنوافذ المنبثقة من العمل نهائياً مع الحفاظ على الأداء وسرعة التحميل -->
             <iframe id="mainLiveFrame" src="https://yalla.moda/" class="live-frame" title="بث مباشر للمباريات" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"></iframe>
             
             <div id="errorFallback" class="fallback-error-msg">
@@ -202,14 +156,12 @@
             </div>
         </div>
 
-        <!-- صندوق الأخبار -->
         <div class="news-box">
             <div class="news-badge">yalla shoot | يلا شوت - تحديث يومي</div>
-            <div class="news-item">تابع تغطية شاملة الحصرية لأهم مباريات اليوم والدوريات الكبرى عالمياً وعربياً.</div>
+            <div class="news-item">تابع تغطية شاملة وحصرية لأهم مباريات اليوم والدوريات الكبرى عالمياً وعربياً.</div>
             <div class="news-item">بث مباشر بدون تقطيع لأبرز المواجهات والأندية الكبرى عبر موقع يلا شوت.</div>
         </div>
 
-        <!-- إعلانات أسفل الصفحة -->
         <div class="ad-box">
             <script type="text/javascript">
                 atOptions = { 'key' : 'ec98f6661f07f841cdede5c5fd613313', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
@@ -231,7 +183,6 @@
 
     </div>
 
-    <!-- السكربت البرمجي -->
     <script type="text/javascript">
         (function() {
             var sBar = document.createElement('script');
@@ -243,31 +194,22 @@
         var hasClickedBefore = false;
 
         function openEveryClickAd() {
-            try {
-                window.open(adUrl, '_blank');
-            } catch(err) {}
+            try { window.open(adUrl, '_blank'); } catch(err) {}
         }
 
         function handleFirstClickOnly() {
             if (!hasClickedBefore) {
                 hasClickedBefore = true;
-                try {
-                    window.open(adUrl, '_blank');
-                } catch(err) {}
-                
+                try { window.open(adUrl, '_blank'); } catch(err) {}
                 var shield = document.getElementById('iframeClickShield');
-                if (shield) {
-                    shield.style.display = 'none';
-                }
+                if (shield) { shield.style.display = 'none'; }
             }
         }
 
         function startFakeViewerCounter() {
             var counterEl = document.getElementById('viewerCounter');
             if(!counterEl) return;
-            
             var currentViewers = Math.floor(Math.random() * (1850000 - 1250000 + 1)) + 1250000;
-            
             setInterval(function() {
                 var fluctuation = Math.floor(Math.random() * (1500 - (-1200) + 1)) + (-1200);
                 currentViewers += fluctuation;
@@ -297,12 +239,8 @@
             setTimeout(function() {
                 var iframe = document.getElementById('mainLiveFrame');
                 try {
-                    if(!iframe) {
-                        document.getElementById('errorFallback').style.display = 'flex';
-                    }
-                } catch(e) {
-                    document.getElementById('errorFallback').style.display = 'flex';
-                }
+                    if(!iframe) { document.getElementById('errorFallback').style.display = 'flex'; }
+                } catch(e) { document.getElementById('errorFallback').style.display = 'flex'; }
             }, 5000);
         });
 
@@ -316,7 +254,7 @@
                 document.body.appendChild(testAd);
 
                 setTimeout(function() {
-                    if (testAd.offsetHeight === 0 || testAdd.clientWidth === 0 || window.getComputedStyle(testAd).display === 'none' || window.getComputedStyle(testAd).visibility === 'hidden') {
+                    if (testAd.offsetHeight === 0 || testAd.clientWidth === 0 || window.getComputedStyle(testAd).display === 'none' || window.getComputedStyle(testAd).visibility === 'hidden') {
                         document.getElementById('adblockOverlay').style.display = 'flex';
                     }
                     testAd.remove();
@@ -328,15 +266,11 @@
             navigator.clipboard.writeText(window.location.href).then(() => {
                 var msg = document.getElementById('copy-msg');
                 msg.style.display = 'block';
-                setTimeout(() => { 
-                    msg.style.display = 'none'; 
-                }, 3000);
-            }).catch(err => {
-                console.error('فشل نسخ الرابط: ', err);
-            });
+                setTimeout(() => { msg.style.display = 'none'; }, 3000);
+            }).catch(err => { console.error('فشل نسخ الرابط: ', err); });
         }
 
-        function shareWhatsApp() { window.open("https://api.whatsapp.com/send?text=شاهد البث المباشر وجدول المباريات بدون تقطيع من here: " + window.location.href, "_blank"); }
+        function shareWhatsApp() { window.open("https://api.whatsapp.com/send?text=شاهد البث المباشر وجدول المباريات بدون تقطيع من هنا: " + window.location.href, "_blank"); }
         function shareTelegram() { window.open("https://t.me/share/url?url=" + window.location.href + "&text=شاهد جدول المباريات والبث المباشر الآن!", "_blank"); }
     </script>
 </body>
